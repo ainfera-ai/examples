@@ -1,19 +1,24 @@
-# Ainfera + langchain
+# ainfera-langchain
 
-Integration example for using Ainfera with langchain.
+LangChain integration + Ainfera Routing. Working agent in ~30 lines. 2 env vars.
 
-## Setup
+## Details
 
-```bash
-pip install -r requirements.txt
-```
+| | |
+|---|---|
+| **Visibility** | PUBLIC |
+| **Primary Language** | Python |
+| **Created** | 2026-05-16 |
+| **Last Updated** | 2026-06-16 |
 
-## Run
+## Quick Start
 
-```bash
-python main.py
-```
+<!-- Add quick-start instructions here -->
 
 ## License
 
-Apache 2.0
+This repository is part of the Ainfera project.
+
+## Status
+
+[![CI](https://github.com/ainfera-ai/ainfera-langchain/actions/workflows/ci.yml/badge.svg)](https://github.com/ainfera-ai/ainfera-langchain/actions)

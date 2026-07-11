@@ -1,0 +1,86 @@
+name: ci
+
+# SP-9 PR-C · standard CI shape for the Ainfera framework-adapter family.
+# Runs on every PR + main push. Three responsibilities:
+#   1. Lint + typecheck — ruff + mypy --strict
+#   2. Unit tests — pytest (mocked MAF client; no live network calls)
+#   3. Supply-chain hard-gate — uv lock --check + pip-audit (per
+#      api/docs/supply-chain-rollout.md; mirrors api#76 SP-5 PR-A)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly CVE re-scan — matches the supply-chain-rollout cadence so
+    # a newly-published vuln on a pinned dep raises CI even without a
+    # code change.
+    - cron: "0 12 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Sync deps
+        run: uv sync --extra dev
+      - name: ruff check
+        run: uv run ruff check .
+      - name: ruff format check
+        run: uv run ruff format --check .
+      - name: mypy --strict
+        run: uv run mypy ainfera_pydantic/
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Sync deps
+        run: uv sync --extra dev
+      - name: pytest
+        run: uv run pytest tests/ -v
+
+  supply-chain:
+    name: supply-chain (lockfile + CVE scan)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      # Per api/docs/supply-chain-rollout.md: frozen-lockfile check
+      # rejects the "added a dep to pyproject, forgot to commit the
+      # lockfile" class of supply-chain regression.
+      - name: uv lock --check (no drift)
+        run: uv lock --check
+      - name: Install pip-audit
+        run: uv tool install pip-audit
+      - name: Export locked requirements
+        run: uv export --format requirements.txt --no-emit-project --no-hashes > /tmp/requirements-locked.txt
+      - name: Filter VCS / direct-URL deps
+        # Same pattern as api#76: pip-audit can't look up git-based or
+        # path-based deps on PyPI. We don't have any in this repo
+        # today; the filter is hardening for the future.
+        run: |
+          set -e
+          grep -vE '^[^@]+ @ (git\+|file://)' /tmp/requirements-locked.txt \
+            > /tmp/requirements-pypi-only.txt || true
+          if [ -s /tmp/requirements-pypi-only.txt ]; then
+            echo "PyPI-only deps remaining for audit: $(wc -l < /tmp/requirements-pypi-only.txt)"
+          else
+            cp /tmp/requirements-locked.txt /tmp/requirements-pypi-only.txt
+          fi
+      - name: pip-audit (CVE scan)
+        run: uv tool run pip-audit --strict --requirement /tmp/requirements-pypi-only.txt

@@ -1,19 +1,24 @@
-# Ainfera + openclaw
+# ainfera-openclaw
 
-Integration example for using Ainfera with openclaw.
+OpenClaw integration + Ainfera Routing. Drop-in inference backend.
 
-## Setup
+## Details
 
-```bash
-pip install -r requirements.txt
-```
+| | |
+|---|---|
+| **Visibility** | PUBLIC |
+| **Primary Language** | Shell |
+| **Created** | 2026-05-16 |
+| **Last Updated** | 2026-06-16 |
 
-## Run
+## Quick Start
 
-```bash
-python main.py
-```
+<!-- Add quick-start instructions here -->
 
 ## License
 
-Apache 2.0
+This repository is part of the Ainfera project.
+
+## Status
+
+[![CI](https://github.com/ainfera-ai/ainfera-openclaw/actions/workflows/ci.yml/badge.svg)](https://github.com/ainfera-ai/ainfera-openclaw/actions)

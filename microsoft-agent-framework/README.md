@@ -1,19 +1,24 @@
-# Ainfera + microsoft-agent-framework
+# ainfera-microsoft-agent-framework
 
-Integration example for using Ainfera with microsoft-agent-framework.
+Microsoft Agent Framework + Ainfera Routing. 2 env vars.
 
-## Setup
+## Details
 
-```bash
-pip install -r requirements.txt
-```
+| | |
+|---|---|
+| **Visibility** | PUBLIC |
+| **Primary Language** | Python |
+| **Created** | 2026-05-24 |
+| **Last Updated** | 2026-06-16 |
 
-## Run
+## Quick Start
 
-```bash
-python main.py
-```
+<!-- Add quick-start instructions here -->
 
 ## License
 
-Apache 2.0
+This repository is part of the Ainfera project.
+
+## Status
+
+[![CI](https://github.com/ainfera-ai/ainfera-microsoft-agent-framework/actions/workflows/ci.yml/badge.svg)](https://github.com/ainfera-ai/ainfera-microsoft-agent-framework/actions)

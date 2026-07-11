@@ -1,19 +1,24 @@
-# Ainfera + pydantic-ai
+# ainfera-pydantic
 
-Integration example for using Ainfera with pydantic-ai.
+Pydantic AI + Ainfera Routing. Typed agents through the gateway.
 
-## Setup
+## Details
 
-```bash
-pip install -r requirements.txt
-```
+| | |
+|---|---|
+| **Visibility** | PUBLIC |
+| **Primary Language** | Python |
+| **Created** | 2026-05-24 |
+| **Last Updated** | 2026-06-16 |
 
-## Run
+## Quick Start
 
-```bash
-python main.py
-```
+<!-- Add quick-start instructions here -->
 
 ## License
 
-Apache 2.0
+This repository is part of the Ainfera project.
+
+## Status
+
+[![CI](https://github.com/ainfera-ai/ainfera-pydantic/actions/workflows/ci.yml/badge.svg)](https://github.com/ainfera-ai/ainfera-pydantic/actions)

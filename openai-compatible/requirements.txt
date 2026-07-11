@@ -1,1 +1,2 @@
-# Pinned dependencies for openai-compatible integration
+openai>=1.50.0
+ainfera>=1.1.0

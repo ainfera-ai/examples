@@ -1,19 +1,24 @@
-# Ainfera + llamaindex
+# ainfera-llamaindex
 
-Integration example for using Ainfera with llamaindex.
+LlamaIndex + Ainfera Routing — RAG agents on OpenAI-compat inference
 
-## Setup
+## Details
 
-```bash
-pip install -r requirements.txt
-```
+| | |
+|---|---|
+| **Visibility** | PUBLIC |
+| **Primary Language** | Shell |
+| **Created** | 2026-05-20 |
+| **Last Updated** | 2026-06-04 |
 
-## Run
+## Quick Start
 
-```bash
-python main.py
-```
+<!-- Add quick-start instructions here -->
 
 ## License
 
-Apache 2.0
+This repository is part of the Ainfera project.
+
+## Status
+
+[![CI](https://github.com/ainfera-ai/ainfera-llamaindex/actions/workflows/ci.yml/badge.svg)](https://github.com/ainfera-ai/ainfera-llamaindex/actions)

@@ -1,1 +1,2 @@
-# Pinned dependencies for llamaindex integration
+openai>=1.40.0
+ainfera>=1.1.0

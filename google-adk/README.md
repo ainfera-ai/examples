@@ -1,19 +1,24 @@
-# Ainfera + google-adk
+# ainfera-google-adk
 
-Integration example for using Ainfera with google-adk.
+Google ADK integration + Ainfera Routing. LiteLLM → OpenAI-compat → Ainfera.
 
-## Setup
+## Details
 
-```bash
-pip install -r requirements.txt
-```
+| | |
+|---|---|
+| **Visibility** | PUBLIC |
+| **Primary Language** | Python |
+| **Created** | 2026-05-16 |
+| **Last Updated** | 2026-06-16 |
 
-## Run
+## Quick Start
 
-```bash
-python main.py
-```
+<!-- Add quick-start instructions here -->
 
 ## License
 
-Apache 2.0
+This repository is part of the Ainfera project.
+
+## Status
+
+[![CI](https://github.com/ainfera-ai/ainfera-google-adk/actions/workflows/ci.yml/badge.svg)](https://github.com/ainfera-ai/ainfera-google-adk/actions)
