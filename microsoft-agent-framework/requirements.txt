@@ -1,0 +1,1 @@
+# Pinned dependencies for microsoft-agent-framework integration
