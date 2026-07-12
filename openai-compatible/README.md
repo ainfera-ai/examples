@@ -1,6 +1,6 @@
 # ainfera-openai-compatible — OpenAI SDK + Ainfera Routing
 
-**OpenAI-compatible drop-in + Ainfera Routing.** Works with any client that speaks OpenAI's API — 2 env vars.
+**OpenAI-compatible chat-completions endpoint + Ainfera Routing.** Works with any client that speaks OpenAI's API — 2 env vars.
 
 ## Two env-var change
 
@@ -60,7 +60,7 @@ endpoints (`/v1/inference`, `/v1/audit`, etc.) directly.
 
 | Surface | Status | Notes |
 | --- | --- | --- |
-| `POST /v1/chat/completions` | ✅ Supported | The drop-in path. Strings + text content blocks. |
+| `POST /v1/chat/completions` | ✅ Supported | The chat-completions path. Strings + text content blocks. |
 | `model`, `messages`, `max_tokens`, `temperature` | ✅ Supported | Proxied to `/v1/inference`. |
 | `top_p`, `n`, `presence_penalty`, `frequency_penalty`, `user` | ⚠️ Accepted, ignored | Field parsed so SDKs don't 422; Ainfera's L2 router decides routing. |
 | `Idempotency-Key` header | ✅ Supported | Pass-through to `/v1/inference`. |

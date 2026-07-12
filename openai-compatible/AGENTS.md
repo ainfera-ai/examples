@@ -3,7 +3,7 @@
 Audience: the Ainfera fleet (Aulë and peers) and any agent operating this repo. Read before touching code.
 
 ## Identity
-- **Adapter** — OpenAI SDK drop-in + **Ainfera Routing** — the universal wedge (point any OpenAI-compatible client at Ainfera). The base other adapters build on. A *customer-integration* surface, not core infra.
+- **Adapter** — OpenAI SDK chat-completions endpoint + **Ainfera Routing** — the universal wedge (point any OpenAI-compatible client at Ainfera). The base other adapters build on. A *customer-integration* surface, not core infra.
 - Inference is routed through Ainfera; every turn carries a signed, hash-chained audit receipt.
 - Source of truth for names: the Naming law (`hizrianraz/obsidian/_ontology/Naming.md`, v1.3).
 
